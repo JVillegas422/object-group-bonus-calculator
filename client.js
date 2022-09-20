@@ -48,33 +48,76 @@ console.log('array of employee data: ',  employees );
 
 // This function will calculate 1 employee's bonus!
 //
-function calBonus( array ) {  
-  // your logic here
+
+ function calNewBonus(array) { 
   let newList = [];
 
-  let newBonus = {
-    name:'',
-    bonusPercentage: 0,
-  }
-
   for(let i = 0; i < array.length; i++){
-   if(array[i].reviewRating <= 2){
+    
+  let newBonus = {
+      name: '',
+      bonusPercentage: 0,
+    }
+   
+    newBonus.name = array[i].name;
+    newList.push(newBonus);
+
+   if (array[i] <= 2) {
     newBonus.bonusPercentage = 0;
-    newList.push(array[i]);
+   } else if (array[i] >= 3) {
+    newBonus.bonusPercentage = .04;
+   } else if (array[i]===4){
+    newBonus.bonusPercentage = .06;
+   } else if (array[i] === 5) {
+    newBonus.bonusPercentage = .1;
    }
-   //else if (){
-   // employees[i].annualSalary *
+   if(array[i].employeeNumber.toString().length === 4) {
+    newBonus.bonusPercentage += .05;
    }
+   //return new object with bonus results
+   newBonus.totalBonus = Math.floor(array[i].annualSalary *(newBonus.bonusPercentage));
+  }
   return newList;
 }
+ console.log(calNewBonus(employees));
 
+
+
+
+//   let bonusArray = [];
+//   for(let people of employees){
+//     if(employee[i].reviewRating < 2){
+//       return employee[i] + 0 
+//     }
+//   }
+  
+// }
+  // your logic here
+// function calBonus( array ) {  
+//   // your logic here
+//   let newList = [];
 
 //   let newBonus = {
 //     name:'',
-//     annualSalary: 0,
+//     bonusPercentage: 0,
+//     totalCompensation: 0
 //   }
-//     newBonus[i].name = array[i].name;
-//     newList.push(newBonus);
-// }
-// for(let i = 0; i < employees.length; i++)
-console.log(calBonus(employees));
+
+
+
+// //   let newBonus = {
+// //     name:'',
+// //     annualSalary: 0,
+// //   }
+// //     newBonus[i].name = array[i].name;
+// //     newList.push(newBonus);
+// // }
+// // for(let i = 0; i < employees.length; i++)
+// console.log(calBonus(employees));
+
+// if(array[i].reviewRating <= 2){
+//   newBonus.bonusPercentage = 0;
+//   newList.push(array[i]);
+
+   //else if (){
+   // employees[i].annualSalary *
