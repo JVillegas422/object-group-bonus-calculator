@@ -74,6 +74,9 @@ console.log('array of employee data: ',  employees );
    if(array[i].employeeNumber.toString().length === 4) {
     newBonus.bonusPercentage += .05;
    }
+   if(array[i].annualSalary > 65000 && array[i].reviewRating > 2) {
+    newBonus.bonusPercentage = .01;
+   }
    //return new object with bonus results
    newBonus.totalBonus = Math.floor(array[i].annualSalary *(newBonus.bonusPercentage));
   }
