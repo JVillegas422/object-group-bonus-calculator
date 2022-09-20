@@ -64,21 +64,22 @@ console.log('array of employee data: ',  employees );
 
    if (array[i] <= 2) {
     newBonus.bonusPercentage = 0;
-   } else if (array[i] >= 3) {
-    newBonus.bonusPercentage = .04;
-   } else if (array[i]===4){
-    newBonus.bonusPercentage = .06;
-   } else if (array[i] === 5) {
-    newBonus.bonusPercentage = .1;
+   } else if (array[i].reviewRating >= 3) {
+    newBonus.bonusPercentage = 0.04;
+   } else if (array[i].reviewRating === 4){
+    newBonus.bonusPercentage = 0.06;
+   } else if (array[i].reviewRating === 5) {
+    newBonus.bonusPercentage = 0.1;
    }
-   if(array[i].employeeNumber.toString().length === 4) {
-    newBonus.bonusPercentage += .05;
+   if(array[i].employeeNumber.toString().length === 4 || 5 && array[i].reviewRating > 2) {
+    newBonus.bonusPercentage += 0.05;
    }
    if(array[i].annualSalary > 65000 && array[i].reviewRating > 2) {
-    newBonus.bonusPercentage = .01;
+    newBonus.bonusPercentage -= 0.01;
    }
    //return new object with bonus results
    newBonus.totalBonus = Math.floor(array[i].annualSalary *(newBonus.bonusPercentage));
+   newBonus.totalCompensation = Math.floor(array[i].annualSalary *(newBonus.bonusPercentage +1));
   }
   return newList;
 }
