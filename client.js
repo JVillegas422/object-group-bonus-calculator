@@ -69,9 +69,9 @@ console.log('array of employee data: ',  employees );
    } else if (array[i].reviewRating === 4){
     newBonus.bonusPercentage = 0.06;
    } else if (array[i].reviewRating === 5) {
-    newBonus.bonusPercentage = 0.1;
+    newBonus.bonusPercentage = 0.10;
    }
-   if(array[i].employeeNumber.toString().length === 4 || 5 && array[i].reviewRating > 2) {
+   if(array[i].employeeNumber.toString().length >= 4 && array[i].reviewRating > 2) {
     newBonus.bonusPercentage += 0.05;
    }
    if(array[i].annualSalary > 65000 && array[i].reviewRating > 2) {
